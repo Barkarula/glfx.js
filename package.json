@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
@@ -34,8 +35,5 @@
       "env",
       "stage-2"
     ]
-  },
-  "dependencies": {
-    "react-hot-loader": "^4.3.3"
   }
 }
