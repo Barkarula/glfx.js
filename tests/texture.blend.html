@@ -1,0 +1,39 @@
+<script src="./glfx.js"></script>
+<script>
+
+    var canvas;
+    var texture;
+    var textureA;
+    var textureB;
+
+    window.onload = function () {
+        var canvas = fx.canvas();
+        var textureA = canvas.texture(document.getElementById('imageA'));
+        var textureB = canvas.texture(document.getElementById('imageB'));
+        function update() {
+            canvas.draw(textureA).blend(textureB, 'screen').update();
+        }
+        document.body.appendChild(canvas);
+        update();
+    };
+
+</script>
+<img id="imageA" src="image.png">
+<img id="imageB" src="image-blend.png">
+<p>The canvas below should blend the two images above with a 'screen' blend mode. Image 2 has a transparent band (not white).</p>
+
+<p>SVG for comparison: </p>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="640" height="427"
+    viewBox="0 0 640 427">
+    <defs>
+        <filter id="blend" x="0" y="0" width="640" height="427" filterUnits="userSpaceOnUse">
+            <feImage x="0" y="0" width="640" height="427" xlink:href="image.png" result="img1" />
+            <feImage x="0" y="0" width="640" height="427" xlink:href="image-blend.png" result="img2" />
+            <feBlend id="blendmode" mode="screen" in="img1" in2="img2" />
+        </filter>
+    </defs>
+    <g transform="translate(0)">
+        <g filter="url(#blend)" transform="translate(0)"></g>
+    </g>
+</svg>
+<p>Canvas: </p>

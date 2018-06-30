@@ -8,9 +8,14 @@
  * @param after  The x and y coordinates of four points after the transform in a flat list, just
  *               like the other argument.
  */
+
+import { getSquareToQuad, multiply } from "../../core/matrix";
+
 function perspective(before, after) {
-    var a = getSquareToQuad.apply(null, after);
-    var b = getSquareToQuad.apply(null, before);
-    var c = multiply(getInverse(a), b);
-    return this.matrixWarp(c);
+  const a = getSquareToQuad(...after);
+  const b = getSquareToQuad(...before);
+  const c = multiply(getInverse(a), b);
+  return this.matrixWarp(c);
 }
+
+export { perspective };
