@@ -40,10 +40,10 @@ function clamp(lo, value, hi) {
   return Math.max(lo, Math.min(value, hi));
 }
 
-function wrapTexture(texture) {
+function wrapTexture(texture,width,height) {
   return {
     _: texture,
-    loadContentsOf(element) {
+    loadContentsOf(element,width,height) {
       // Make sure that we're using the correct global WebGL context
       gl = this._.gl;
       this._.loadContentsOf(element);
@@ -56,8 +56,8 @@ function wrapTexture(texture) {
   };
 }
 
-function texture(element) {
-  return wrapTexture(Texture.fromElement(element));
+function texture(element,width,height) {
+  return wrapTexture(Texture.fromElement(element,width,height));
 }
 
 function initialize(width, height) {
