@@ -28,9 +28,9 @@ class Texture {
       );
   }
 
-  loadContentsOf(element) {
-    this.width = element.width || element.videoWidth;
-    this.height = element.height || element.videoHeight;
+  loadContentsOf(element, width, height) {
+    this.width = width || element.width || element.videoWidth;
+    this.height = height || element.height || element.videoHeight;
     gl.bindTexture(gl.TEXTURE_2D, this.id);
     gl.texImage2D(
       gl.TEXTURE_2D,
@@ -184,9 +184,9 @@ class Texture {
   }
 }
 
-Texture.fromElement = element => {
+Texture.fromElement = (element, width, height) => {
   const texture = new Texture(0, 0, gl.RGBA, gl.UNSIGNED_BYTE);
-  texture.loadContentsOf(element);
+  texture.loadContentsOf(element, width, height);
   return texture;
 };
 
