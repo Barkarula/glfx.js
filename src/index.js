@@ -8,4 +8,4 @@
 
 import "./OES_texture_float_linear-polyfill";
 import { canvas } from "./core/canvas";
-export default canvas;
+export { canvas };
