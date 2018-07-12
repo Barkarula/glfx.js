@@ -46,7 +46,7 @@ function wrapTexture(texture,width,height) {
     loadContentsOf(element,width,height) {
       // Make sure that we're using the correct global WebGL context
       gl = this._.gl;
-      this._.loadContentsOf(element);
+      this._.loadContentsOf(element, width, height);
     },
     destroy() {
       // Make sure that we're using the correct global WebGL context
