@@ -1,5 +1,9 @@
 import { Shader } from "../core/shader";
 
+function clamp(lo, value, hi) {
+  return Math.max(lo, Math.min(value, hi));
+}
+
 function warpShader(uniforms, warp) {
   return new Shader(
     null,
@@ -25,4 +29,4 @@ float random(vec3 scale, float seed) {
     return fract(sin(dot(gl_FragCoord.xyz + seed, scale)) * 43758.5453 + seed);
 }`;
 
-export { warpShader, randomShaderFunc };
+export { warpShader, randomShaderFunc, clamp };

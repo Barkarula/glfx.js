@@ -8,7 +8,7 @@
  */
 
 import { simpleShader, gl } from "../../core/canvas";
-import warpShader from "../common";
+import { warpShader, clamp } from "../common";
 
 function bulgePinch(centerX, centerY, radius, strength) {
   gl.bulgePinch =

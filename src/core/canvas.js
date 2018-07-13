@@ -36,14 +36,10 @@ import { Shader } from "./shader";
 
 let gl;
 
-function clamp(lo, value, hi) {
-  return Math.max(lo, Math.min(value, hi));
-}
-
-function wrapTexture(texture,width,height) {
+function wrapTexture(texture, width, height) {
   return {
     _: texture,
-    loadContentsOf(element,width,height) {
+    loadContentsOf(element, width, height) {
       // Make sure that we're using the correct global WebGL context
       gl = this._.gl;
       this._.loadContentsOf(element, width, height);
@@ -56,8 +52,8 @@ function wrapTexture(texture,width,height) {
   };
 }
 
-function texture(element,width,height) {
-  return wrapTexture(Texture.fromElement(element,width,height));
+function texture(element, width, height) {
+  return wrapTexture(Texture.fromElement(element, width, height));
 }
 
 function initialize(width, height) {

@@ -15,7 +15,7 @@
  */
 
 import { simpleShader, gl } from "../../core/canvas";
-import warpShader from "../common";
+import { warpShader } from "../common";
 
 function matrixWarp(matrix, inverse, useTextureSpace) {
   gl.matrixWarp =

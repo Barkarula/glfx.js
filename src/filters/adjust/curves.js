@@ -20,6 +20,7 @@
 
 import { simpleShader, gl } from "../../core/canvas";
 import { Shader } from "../../core/shader";
+import { clamp } from "../common";
 
 function splineInterpolate(points) {
   const interpolator = new SplineInterpolator(points);

@@ -16,7 +16,7 @@
  */
 
 import { simpleShader, gl } from "../../core/canvas";
-import { randomShaderFunc } from "../common";
+import { randomShaderFunc, clamp } from "../common";
 import { Shader } from "../../core/shader";
 
 function lensBlur(radius, brightness, angle) {

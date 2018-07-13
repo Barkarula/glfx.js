@@ -6,6 +6,7 @@
 
 import { simpleShader, gl } from "../../core/canvas";
 import { Shader } from "../../core/shader";
+import { clamp } from "../common";
 
 function noise(amount) {
   gl.noise =
