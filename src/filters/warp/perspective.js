@@ -10,6 +10,7 @@
  */
 
 import { getSquareToQuad, multiply } from "../../core/matrix";
+import { getInverse } from "../../core/matrix";
 
 function perspective(before, after) {
   const a = getSquareToQuad(...after);

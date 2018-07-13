@@ -8,4 +8,11 @@
 
 import "./OES_texture_float_linear-polyfill";
 import { canvas } from "./core/canvas";
-export { canvas };
+
+if (typeof window !== "undefined" && typeof window.document !== "undefined") {
+  if (!window.fx) {
+    window.fx = { canvas };
+  }
+}
+
+export default { canvas };

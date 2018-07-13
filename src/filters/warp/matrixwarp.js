@@ -15,6 +15,7 @@
  */
 
 import { simpleShader, gl } from "../../core/canvas";
+import { getInverse } from "../../core/matrix";
 import { warpShader } from "../common";
 
 function matrixWarp(matrix, inverse, useTextureSpace) {

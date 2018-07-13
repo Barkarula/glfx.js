@@ -19,16 +19,14 @@ module.exports = (env, argv) => {
     output: {
       path: __dirname + "/dist",
       publicPath: "/",
-      filename: "glfx.js",
-      libraryTarget: "var",
-      library: "fx"
+      filename: "glfx.js"
     },
     plugins:
       argv.mode === "production"
         ? []
         : [new webpack.HotModuleReplacementPlugin()],
     devServer: {
-      contentBase: __dirname + "/tests",
+      contentBase: __dirname + "/tests/browser",
       hot: true
     }
   };
